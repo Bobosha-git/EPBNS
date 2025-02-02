@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Page
 
+
 def home(request):
     pages = Page.objects.exclude(content = "")
     return render(request, "note/home.html", {"pages": pages})
@@ -29,7 +30,3 @@ def delete_page(request, page_uuid):
     page = get_object_or_404(Page, uuid=page_uuid)
     page.delete()
     return redirect("home")
-
-
-
-
