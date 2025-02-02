@@ -1,0 +1,21 @@
+{% load static %}
+<html>
+<head>
+    <title>{{ page.title }}</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ page.title }}" placeholder="Название страницы"><br><br>
+        <textarea name="content" rows="10" cols="50" placeholder="Ваш текст...">{{ page.content }}</textarea><br><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <form method="POST" action="{% url 'delete_page' page.uuid %}" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">Del</button>
+    </form>
+    <br>
+    <br>
+    <a href="{% url 'home' %}">← Назад</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'note/style.css' %}">
+</head>
+<body>
+    <h1>Мои страницы</h1>
+    <button onclick="window.location.href='{% url 'create_page' %}'">+ Новая страница</button>
+    <ul>
+        {% for page in pages %}
+        <li><a href="{% url 'page' page.uuid %}">{{ page.title }}</a>
+        <form method="POST" action="{% url 'delete_page' page.uuid %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Del</button>
+        </form>
+        </li>
+        {% empty %}
+        <li>Нет сохранённых страниц.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
