@@ -174,3 +174,5 @@ restart_bot.sh
 .env
 .vscode 
 texts.txt
+
+settings.py
