@@ -175,4 +175,4 @@ restart_bot.sh
 .vscode 
 texts.txt
 
-C:\Users\Bobosha\Desktop\GitProj\EPBNS\owner\epbns\settings.py
+owner/epbns/settings.py
